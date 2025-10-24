@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.subjects-grid button {
+    padding: 20px;
+    font-size: 18px;
+}
+
+#questionForm {
+    margin-top: 30px;
+}
+
+.question-batch-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.question-entry {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.question-entry h4 {
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.answerOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.correctOptionsContainer {
+    margin-top: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+.correctOptionsContainer label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.correctOptionsContainer div {
+    margin-bottom: 8px;
+}
+
+.add-question-btn {
+    background-color: #2196F3;
+}
+
+.add-question-btn:hover {
+    background-color: #0b7dda;
+}
+
+.submit-all-btn {
+    background-color: #4CAF50;
+}
+
+.submit-all-btn:hover {
+    background-color: #45a049;
+}
+
+.back-btn {
+    background-color: #f44336;
+}
+
+.back-btn:hover {
+    background-color: #d32f2f;
+}
+
+.remove-question-btn {
+    background-color: #f44336;
+    margin-top: 10px;
+}
+
+.remove-question-btn:hover {
+    background-color: #d32f2f;
+}
+
+.quiz-setup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#quizContainer {
+    margin-top: 30px;
+}
+
+.question-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.question-item h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.question-item button {
+    margin-top: 10px;
+}
+
+#questionNumber {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 150px;
+}
+
+#questionListContainer {
+    margin-top: 20px;
+}
+
+#questionListContainer button:first-child {
+    margin-bottom: 20px;
+}

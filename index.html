@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2>Quiz Application</h2>
+            <div class="login-options">
+                <button onclick="showAdminLogin()">Admin Login</button>
+                <button onclick="showStudentLogin()">Student Login</button>
+            </div>
+
+            <!-- Admin Login Form -->
+            <div id="adminLogin" class="login-form" style="display: none;">
+                <h3>Admin Login</h3>
+                <input type="text" id="adminUsername" placeholder="Username">
+                <input type="password" id="adminPassword" placeholder="Password">
+                <button onclick="adminLoginHandler()">Login</button>
+            </div>
+
+            <!-- Student Login Form -->
+            <div id="studentLogin" class="login-form" style="display: none;">
+                <h3>Student Login</h3>
+                <input type="text" id="studentName" placeholder="Enter your name">
+                <button onclick="studentLoginHandler()">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="adminDashboard" class="dashboard" style="display: none;">
+            <h2>Admin Dashboard</h2>
+            <div class="subjects-container">
+                <h3>Subjects</h3>
+                <div class="subjects-grid">
+                    <button onclick="showQuestionForm('OS')">OS</button>
+                    <button onclick="showQuestionForm('COA')">COA</button>
+                    <button onclick="showQuestionForm('DBMS')">DBMS</button>
+                    <button onclick="showQuestionForm('DE')">DE</button>
+                    <button onclick="showQuestionForm('CN')">CN</button>
+                    <button onclick="showQuestionForm('TOC')">TOC</button>
+                    <button onclick="showQuestionForm('Mathematics')">Mathematics</button>
+                </div>
+            </div>
+
+            <!-- Question List -->
+            <div id="questionList" style="display: none;">
+                <h3>Questions for <span id="questionListSubject"></span></h3>
+                <div id="questionListContainer"></div>
+            </div>
+
+            <!-- Question Form -->
+            <div id="questionForm" style="display: none;">
+                <h3>Add Questions for <span id="selectedSubject"></span></h3>
+                
+                <div class="question-batch-controls">
+                    <button onclick="addNewQuestionToForm()" class="add-question-btn">Add New Question</button>
+                    <button onclick="submitAllQuestions()" class="submit-all-btn">Submit All Questions</button>
+                    <button onclick="showQuestionList()" class="back-btn">Back to Question List</button>
+                </div>
+                
+                <div id="questionsContainer">
+                    <!-- Question forms will be added here dynamically -->
+                    <div class="question-entry" data-index="0">
+                        <h4>Question 1</h4>
+                        <input type="number" class="questionNumber" placeholder="Question Number">
+                        <select class="questionLevel">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                        <select class="questionType" onchange="updateAnswerOptionsForQuestion(this)">
+                            <option value="integer">Integer</option>
+                            <option value="multiple">Multiple Choice</option>
+                            <option value="single">Single Correct</option>
+                            <option value="blanks">Fill in the Blanks</option>
+                        </select>
+                        <textarea class="questionText" placeholder="Enter question"></textarea>
+                        <div class="answerOptions"></div>
+                        <div class="correctOptionsContainer" style="display: none;"></div>
+                        <input type="text" class="correctAnswer" placeholder="Correct answer">
+                        <button onclick="removeQuestion(this)" class="remove-question-btn">Remove Question</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Dashboard -->
+        <div id="studentDashboard" class="dashboard" style="display: none;">
+            <h2>Welcome, <span id="studentNameDisplay"></span>!</h2>
+            <div class="quiz-setup">
+                <h3>Select Quiz Options</h3>
+                <select id="quizSubject">
+                    <option value="">Select Subject</option>
+                    <option value="OS">OS</option>
+                    <option value="COA">COA</option>
+                    <option value="DBMS">DBMS</option>
+                    <option value="DE">DE</option>
+                    <option value="CN">CN</option>
+                    <option value="TOC">TOC</option>
+                    <option value="Mathematics">Mathematics</option>
+                </select>
+                <select id="quizLevel">
+                    <option value="">Select Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <select id="quizType">
+                    <option value="">Select Question Type</option>
+                    <option value="integer">Integer</option>
+                    <option value="multiple">Multiple Choice</option>
+                    <option value="single">Single Correct</option>
+                    <option value="blanks">Fill in the Blanks</option>
+                </select>
+                <button onclick="startQuiz()">Start Quiz</button>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quizContainer" style="display: none;">
+                <div id="questionDisplay"></div>
+                <div id="answerInput"></div>
+                <button onclick="submitAnswer()">Submit Answer</button>
+            </div>
+
+            <!-- Result Container -->
+            <div id="resultContainer" style="display: none;">
+                <h3>Quiz Results</h3>
+                <p>Your Score: <span id="scoreDisplay"></span></p>
+                <button onclick="returnToDashboard()">Take Another Quiz</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
