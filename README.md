@@ -1,1 +1,1 @@
-devops project
+Quiz Application for Gate 
